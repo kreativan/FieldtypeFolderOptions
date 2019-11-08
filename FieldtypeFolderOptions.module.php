@@ -52,6 +52,8 @@ class FieldtypeFolderOptions extends Fieldtype {
 	}
 
 	public function getInputfield(Page $page, Field $fields) {
+		
+		if(empty($fields->folder)) return;
 
 		// Folder
 		$folder = $this->config->paths->templates . $fields->folder;
