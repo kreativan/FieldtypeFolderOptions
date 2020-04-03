@@ -32,14 +32,6 @@ class FieldtypeFolderOptions extends Fieldtype {
 		$f->columnWidth = "100%";
 		$f->description = "Folder path, relative to templates folder. Dont forget to put forward slash `/` the end.";
 		$inputfields->add($f);
-		
-		$f = $this->wire('modules')->get("InputfieldText");
-		$f->attr('name', 'default_path');
-		$f->label = 'Default Path';
-		$f->value = $field->default_path;
-		$f->required = false;
-		$f->columnWidth = "100%";
-		$inputfields->add($f);
 
 		$f = $this->wire('modules')->get("InputfieldRadios");
 		$f->attr('name', 'input_type');
@@ -89,10 +81,8 @@ class FieldtypeFolderOptions extends Fieldtype {
 			$inputfield->addOption($value, $label);
 		}
 		
-		// Set default option
-		if(!empty($fields->default_path) && $fields->default_path != "") {
-			$inputfield->addOptionAttributes($fields->default_path, ["selected" => "selected"]);
-		}
+		// Add some attributes to the field
+		// $inputfield->addOptionAttributes("my_field_name", ["selected" => "selected"]);
 
 		return $inputfield;
 
