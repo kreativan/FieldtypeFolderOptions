@@ -59,12 +59,12 @@ class FieldtypeFolderOptions extends Fieldtype {
 		$folder = $this->config->paths->templates . $fields->folder;
 		
 		// Get options
-        $fodler_options = scandir($folder);
+        $folder_options = scandir($folder);
 
         // store options here
         $options = [];
 
-		foreach($fodler_options as $opt) {
+		foreach($folder_options as $opt) {
 			$option = substr($opt, 0, -4);
 			if($opt != "." && $opt != ".." && $opt != "inc" && $opt[0] != "_") {
 				$options[$option] = ucfirst($option);
