@@ -60,7 +60,6 @@ class FieldtypeFolderOptions extends Fieldtype {
 		
 		// Get options
         $fodler_options = scandir($folder);
-        $fodler_options = array_unique($all_options);
 
         // store options here
         $options = [];
